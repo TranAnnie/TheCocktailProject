@@ -1,17 +1,19 @@
-import { Card } from "react-bootstrap";
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import DrinkItem from "./DrinkItem";
 
 const DrinkList = (props) => {
   return (
-    <div className="container">
-      <div className="row justify-content-md-center">
-        <div className="col col-md-auto">
-          {props.drinks.map((drink) => (
+    <Container>
+      <Row xs={1} md={2} className='g-4'>
+        {props.drinks.map((drink) => (
+          <Col>
             <DrinkItem key={drink.idDrink} value={drink} />
-          ))}
-        </div>
-      </div>
-    </div>
+          </Col>
+        ))};
+    </Row>
+    </Container>
   );
 };
 

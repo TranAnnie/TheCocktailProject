@@ -20,21 +20,23 @@ function App() {
 
   return (
     <div className="App">
-      <div className="App-header">
-        <h1>Välkommen till The Cocktail!</h1>
-      </div>
-      <div className="App-body">
-        <div className="Border">
-          <h3>Här kan du söka på drinkar.. blabla info om appen</h3>
+      <div className="App-content">
+        <div className="App-header">
+          <h1>Välkommen till The Cocktail!</h1>
         </div>
+        <div className="App-body">
+          <div className="Border">
+            <h3>Här kan du söka på drinkar.. blabla info om appen</h3>
+          </div>
+        </div>
+        <input
+          className="User-input"
+          placeholder="Sök här efter drinkar här.."
+          type="text"
+          onChange={onChange}
+        ></input>
+        <DrinkList drinks={drinks} />
       </div>
-      <input
-        className="User-input"
-        placeholder="Sök här efter drinkar här.."
-        type="text"
-        onChange={onChange}
-      ></input>
-      <DrinkList drinks={drinks} />
     </div>
   );
 }

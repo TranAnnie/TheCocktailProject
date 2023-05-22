@@ -1,10 +1,19 @@
 .App {
-  background-image: url("../image/bar-pic.jpg");
-  height: 100vh;
-  color: white;
+  height: auto;
+  color: rgb(171, 158, 235);
+  font-weight: bold;
+  font-size: 1.5rem;
   font-family: "Courier New", Courier, monospace;
   text-align: center;
+  background-color: black;
+  margin: -24px -8px;
+  padding: 24px 20px;
+  background-image: url("../image/bar-pic.jpg");
+  background-repeat: 'no-repeat';
+  background-attachment: fixed;
+  opacity: 0.9;
 }
+
 
 .App-header {
   text-align: center;
@@ -18,10 +27,12 @@
 }
 
 .User-input {
-  width: 300px;
+  width: 400px;
   height: 40px;
-  background-color: grey;
+  background-color: rgb(33, 37, 26);
   color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
 }
 
 ::-webkit-input-placeholder {
