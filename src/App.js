@@ -24,14 +24,11 @@ function App() {
         <div className="App-header">
           <h1>Välkommen till The Cocktail!</h1>
         </div>
-        <div className="App-body">
-          <div className="Border">
-            <h3>Här kan du söka på drinkar.. blabla info om appen</h3>
-          </div>
-        </div>
+        <div className="App-body"></div>
+        <label>Sök här: </label>
         <input
           className="User-input"
-          placeholder="Sök här efter drinkar här.."
+          placeholder="Sök efter drinkar här.."
           type="text"
           onChange={onChange}
         ></input>

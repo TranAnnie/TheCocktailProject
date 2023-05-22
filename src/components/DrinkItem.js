@@ -2,8 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 
 const DrinkItem = (props) => {
-
-  function getIngredients(){
+  function getIngredients() {
     let ingredients = [];
     for (let i = 1; i < 16; i++) {
       const ingredient = props.value[`strIngredient${i}`];
@@ -12,8 +11,8 @@ const DrinkItem = (props) => {
         const ingAndMea = {
           ing: ingredient,
           mea: measure,
-        }
-        ingredients.push(ingAndMea)
+        };
+        ingredients.push(ingAndMea);
       }
     }
     return ingredients;
@@ -23,15 +22,17 @@ const DrinkItem = (props) => {
       <Card.Img
         variant="top"
         src={props.value.strDrinkThumb}
-        style={{ width: "15%", height: "15%", margin: "20px"}}
+        style={{ width: "15%", height: "15%", margin: "20px" }}
       />
       <Card.Body>
         <Card.Title>{props.value.strDrink}</Card.Title>
         <Card.Text>Instructions: {props.value.strInstructions}</Card.Text>
         {getIngredients().map((ingredient) => (
-          <Card.Text>{ingredient.ing}   {ingredient.mea}</Card.Text>
+          <Card.Text>
+            {ingredient.ing} {ingredient.mea}
+          </Card.Text>
         ))}
-        <Card.Text>.........</Card.Text>
+        <Card.Text>-------------------</Card.Text>
       </Card.Body>
     </Card>
   );
