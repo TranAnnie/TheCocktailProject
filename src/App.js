@@ -28,8 +28,13 @@ function App() {
           <h3>Här kan du söka på drinkar.. blabla info om appen</h3>
         </div>
       </div>
-
-      <DrinkList drinks={drinks}/>
+      <input
+        className="User-input"
+        placeholder="Sök här efter drinkar här.."
+        type="text"
+        onChange={onChange}
+      ></input>
+      <DrinkList drinks={drinks} />
     </div>
   );
 }
