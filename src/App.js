@@ -1,10 +1,23 @@
 import "./App.css";
-import "./components/DrinkList.js"
+import "./components/DrinkList.js";
 import { useState } from "react";
 import DrinkList from "./components/DrinkList.js";
 
 function App() {
- 
+  const [drinks, setDrinks] = useState([]);
+
+  async function onChange(e) {
+    const searchValue = e.target.value;
+    if (searchValue.length > 2) {
+      const respons = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`
+      );
+      const data = await respons.json();
+      const dataArray = Array.isArray(data.drinks) ? data.drinks : [];
+      setDrinks(dataArray);
+    }
+  }
+
   return (
     <div className="App">
       <div className="App-header">
@@ -16,7 +29,7 @@ function App() {
         </div>
       </div>
 
-      <DrinkList />
+      <DrinkList drinks={drinks}/>
     </div>
   );
 }

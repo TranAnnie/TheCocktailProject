@@ -1,13 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const DrinkItem = (props) => { //Props är item + en key
+const DrinkItem = (props) => {
+  return (
+    <li className="list-group-item">
+      {props.value.strDrink}
+      <img
+        src={props.item.strDrinkThumb}
+        alt="imageDrink"
+        style={{ width: "10%" }}
+      />
+    </li>
+  );
+};
 
-      return (
-        <li className="list-group-item">
-          {props.value.strDrink}
-            <img src={props.item.strDrinkThumb} alt="imageDrink" style={{"width": "50%"}} />
-        </li>
-      );
-}
-
-export default DrinkItem
+export default DrinkItem;
