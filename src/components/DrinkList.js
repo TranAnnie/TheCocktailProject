@@ -1,11 +1,11 @@
 import DrinkItem from "./DrinkItem";
 
-const DrinkList = () => {
+const DrinkList = (props) => {
   return (
     <div>
       <ul className="list-group">
-        {drink.map((drink) => (
-          <DrinkItem key={drink.id} item={drink} />
+        {props.drinks.map((drink) => (
+          <DrinkItem key={drink.idDrink} item={drink} />
         ))}
       </ul>
     </div>
