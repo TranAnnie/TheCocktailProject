@@ -1,15 +1,21 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 const DrinkItem = (props) => {
   return (
-    <li className="list-group-item">
-      {props.value.strDrink}
-      <img
-        src={props.item.strDrinkThumb}
-        alt="imageDrink"
-        style={{ width: "10%" }}
+    <Card style={{ width: "20rem" }}>
+      <Card.Img
+        variant="top"
+        src={props.value.strDrinkThumb}
+        style={{ width: "45%", height: "45%" }}
       />
-    </li>
+      <Card.Body>
+        <Card.Title>{props.value.strDrink}</Card.Title>
+        <Card.Text>{props.value.strInstructions}</Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
   );
 };
 
