@@ -1,7 +1,9 @@
 .App {
-  background-color: #ffc55c;
-  min-height: 100vh;
+  background-image: url("../image/bar-pic.jpg");
+  height: 100vh;
   color: white;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
 }
 
 .App-header {
@@ -15,11 +17,15 @@
   text-align: center;
 }
 
-.Border {
-  border-style: solid;
-  border-radius: 25px;
-  width: 200px;
-  height: 200px;
+.User-input {
+  width: 300px;
+  height: 40px;
+  background-color: grey;
+  color: white;
+}
+
+::-webkit-input-placeholder {
+  color: white;
 }
 
 /* Desktop */
@@ -39,7 +45,7 @@
   }
 
   .User-input {
-    width: 500px;
+    width: 300px;
     height: 40px;
   }
 }
