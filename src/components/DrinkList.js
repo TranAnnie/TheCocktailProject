@@ -5,7 +5,7 @@ const DrinkList = (props) => {
     <div>
       <ul className="list-group">
         {props.drinks.map((drink) => (
-          <DrinkItem key={drink.idDrink} item={drink} />
+          <DrinkItem key={drink.idDrink} item={drink} value={drink} />
         ))}
       </ul>
     </div>
