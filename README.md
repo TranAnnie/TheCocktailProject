@@ -1,12 +1,12 @@
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Instruktioner för att köra:
+I konsolen; 
+-skriv npm install.
+-skriv npm start
 
 Detta är ett projekt för att hitta recept på drinkar. Användaren kan även se historik på upp till de fem senaste drinkarna.
 
 Varför vi har använt React:
-React likar Java där man programmerar i klasser och är mest inne just nu där flest företag jobbar med React. Man kan återanvända komponenter.
+React likar Java där man programmerar i klasser och är mest inne just nu där flest företag jobbar med React. Man kan återanvända komponenter. Det är lätt att implementera moduler på funktionalitet man efterfrågar och det finns ett stort community där man kan få svar på sina frågor. 
 
 Varför vi inte har använt Vue:
 Vue hade kunnat vara ett bra val då syntaxen är enkel. Det är lätt att förstå och komma igång. Nackdelen med Vue är att det inte finns lika många jobb som jobbar med ramverket. Vue har inte lika tydlig eller mycket dokumentation jämfört med Rract och Angular.
