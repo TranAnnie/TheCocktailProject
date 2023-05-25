@@ -5,9 +5,11 @@ import DrinkList from "./components/DrinkList.js";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [latestSearches, setLatestSearches] = useState(JSON.parse(localStorage.getItem("searchValues") || "[]"));
 
   async function onChange(e) {
-    const searchValue = e.target.value;
+    setSearchValue(e.target.value);
     if (searchValue.length > 2) {
       const respons = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`
@@ -18,20 +20,37 @@ function App() {
     }
   }
 
+  function saveDrink() {
+    let currentStorage = [];
+    currentStorage = JSON.parse(localStorage.getItem("searchValues") || "[]");
+    if (currentStorage.find((e) => e === searchValue) === undefined) {
+      currentStorage.push(searchValue);
+      localStorage.setItem("searchValues", JSON.stringify(currentStorage));
+      setLatestSearches(currentStorage);
+    }
+  }
+
   return (
     <div className="App">
       <div className="App-content">
         <div className="App-header">
-          <h1>Välkommen till The Cocktail!</h1>
+          <h1>Welcome to The Cocktail!</h1>
         </div>
         <div className="App-body"></div>
-        <label>Sök här: </label>
+        <label>Search here: </label>
         <input
           className="User-input"
           placeholder="Sök efter drinkar här.."
           type="text"
           onChange={onChange}
         ></input>
+        <button className="save-button" onClick={saveDrink}>Spara sökning</button>
+        <p>Latest saved searches:</p>
+        <ul>
+          {latestSearches.map((search) => (
+            <li>{search}</li>
+          ))}
+        </ul>
         <DrinkList drinks={drinks} />
       </div>
     </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 
 const DrinkItem = (props) => {
   function getIngredients() {
@@ -18,23 +17,23 @@ const DrinkItem = (props) => {
     return ingredients;
   }
   return (
-    <Card>
-      <Card.Img
-        variant="top"
+    <div>
+      <img
         src={props.value.strDrinkThumb}
         style={{ width: "15%", height: "15%", margin: "20px" }}
+        alt="drink"
       />
-      <Card.Body>
-        <Card.Title>{props.value.strDrink}</Card.Title>
-        <Card.Text>Instructions: {props.value.strInstructions}</Card.Text>
+      <div>
+        <h2><u>{props.value.strDrink}</u></h2>
+        <p>Instructions: {props.value.strInstructions}</p>
         {getIngredients().map((ingredient) => (
-          <Card.Text>
+          <p>
             {ingredient.ing} {ingredient.mea}
-          </Card.Text>
+          </p>
         ))}
-        <Card.Text>-------------------</Card.Text>
-      </Card.Body>
-    </Card>
+        <p>-------------------</p>
+      </div>
+    </div>
   );
 };
 
