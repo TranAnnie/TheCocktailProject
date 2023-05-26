@@ -6,7 +6,9 @@ import DrinkList from "./components/DrinkList.js";
 function App() {
   const [drinks, setDrinks] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [latestSearches, setLatestSearches] = useState(JSON.parse(localStorage.getItem("searchValues") || "[]"));
+  const [latestSearches, setLatestSearches] = useState(
+    JSON.parse(localStorage.getItem("searchValues") || "[]")
+  );
 
   async function onChange(e) {
     setSearchValue(e.target.value);
@@ -40,11 +42,13 @@ function App() {
         <label>Search here: </label>
         <input
           className="User-input"
-          placeholder="Sök efter drinkar här.."
+          placeholder="Search for drinks here.."
           type="text"
           onChange={onChange}
         ></input>
-        <button className="save-button" onClick={saveDrink}>Spara sökning</button>
+        <button className="save-button" onClick={saveDrink}>
+          Save searches
+        </button>
         <p>Latest saved searches:</p>
         <ul>
           {latestSearches.map((search) => (
