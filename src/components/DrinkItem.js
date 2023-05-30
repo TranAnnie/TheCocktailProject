@@ -1,4 +1,6 @@
 import React from "react";
+import { v4 as uuidv4 } from 'uuid';
+
 
 const DrinkItem = (props) => {
   function getIngredients() {
@@ -27,7 +29,8 @@ const DrinkItem = (props) => {
         <h2><u>{props.value.strDrink}</u></h2>
         <p>Instructions: {props.value.strInstructions}</p>
         {getIngredients().map((ingredient) => (
-          <p>
+          
+          <p key={uuidv4()}>
             {ingredient.ing} {ingredient.mea}
           </p>
         ))}
