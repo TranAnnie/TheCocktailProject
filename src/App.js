@@ -2,6 +2,8 @@ import "./App.css";
 import "./components/DrinkList.js";
 import { useState } from "react";
 import DrinkList from "./components/DrinkList.js";
+import { v4 as uuidv4 } from 'uuid';
+
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -52,7 +54,7 @@ function App() {
         <p>Latest saved searches:</p>
         <ul>
           {latestSearches.map((search) => (
-            <li>{search}</li>
+            <li key={uuidv4()}>{search}</li>
           ))}
         </ul>
         <DrinkList drinks={drinks} />
