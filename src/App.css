@@ -57,6 +57,11 @@ ul {
   color: white;
 }
 
+li:hover{
+  color: rgb(171, 158, 235);
+  cursor: pointer;
+}
+
 /* Tablet */
 @media screen and (max-width: 900px) {
   .App {

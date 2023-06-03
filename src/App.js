@@ -1,6 +1,6 @@
 import "./App.css";
 import "./components/DrinkList.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DrinkList from "./components/DrinkList.js";
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,8 +11,8 @@ function App() {
     JSON.parse(localStorage.getItem("searchValues") || "[]")
   );
 
-  async function onChange(e) {
-    setSearchValue(e.target.value);
+useEffect(() => {
+  async function fetchData() {
     if (searchValue.length > 2) {
       const respons = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`
@@ -21,6 +21,13 @@ function App() {
       const dataArray = Array.isArray(data.drinks) ? data.drinks : [];
       setDrinks(dataArray);
     }
+  }
+  fetchData().catch(console.error);;
+}, [searchValue])
+
+  function onChange(e) {
+    setSearchValue(e.target.value);
+    console.log(searchValue);
   }
 
   function saveDrink() {
@@ -31,6 +38,12 @@ function App() {
       localStorage.setItem("searchValues", JSON.stringify(currentStorage));
       setLatestSearches(currentStorage);
     }
+  }
+
+  function quickSearch(search) {
+    let search_input = document.getElementsByName("search_input");
+    search_input[0].value = search;
+    onChange({ target: { value: search } });
   }
 
   return (
@@ -46,7 +59,8 @@ function App() {
             className="User-input"
             placeholder="Search for drinks here.."
             type="text"
-            onChange={onChange}
+            name="search_input"
+            onChange={() => onChange}
           ></input>
         </div>
         <div className="form">
@@ -57,7 +71,7 @@ function App() {
         <p>Latest saved searches:</p>
         <ul>
           {latestSearches.map((search) => (
-            <li key={uuidv4()}>{search}</li>
+            <li key={uuidv4()} onClick={() => quickSearch(search)}>{search}</li>
           ))}
         </ul>
         <DrinkList drinks={drinks} />
