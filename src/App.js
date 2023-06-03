@@ -2,8 +2,7 @@ import "./App.css";
 import "./components/DrinkList.js";
 import { useState } from "react";
 import DrinkList from "./components/DrinkList.js";
-import { v4 as uuidv4 } from 'uuid';
-
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -42,15 +41,19 @@ function App() {
         </div>
         <div className="App-body"></div>
         <label>Search here: </label>
-        <input
-          className="User-input"
-          placeholder="Search for drinks here.."
-          type="text"
-          onChange={onChange}
-        ></input>
-        <button className="save-button" onClick={saveDrink}>
-          Save searches
-        </button>
+        <div className="form">
+          <input
+            className="User-input"
+            placeholder="Search for drinks here.."
+            type="text"
+            onChange={onChange}
+          ></input>
+        </div>
+        <div className="form">
+          <button className="save-button" onClick={saveDrink}>
+            Save searches
+          </button>
+        </div>
         <p>Latest saved searches:</p>
         <ul>
           {latestSearches.map((search) => (

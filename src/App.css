@@ -18,14 +18,20 @@
   padding-bottom: 20px;
 }
 
+.form {
+  margin-bottom: 20px;
+}
+
 .App-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 .User-input {
+  margin-top: 10px;
   width: 300px;
   height: 40px;
   background-color: rgb(33, 37, 26);
@@ -34,14 +40,13 @@
   font-size: 1.2rem;
 }
 
-.save-button{
-  width: 150px;
+.save-button {
+  width: 300px;
   height: 40px;
   background-color: rgb(171, 158, 235);
   color: white;
   border-radius: 8px;
   font-size: 1.2rem;
-  margin-left: 10px;
 }
 
 ul {
@@ -52,40 +57,27 @@ ul {
   color: white;
 }
 
-/* Desktop */
-@media screen and (max-width: 1300px) {
-}
-
 /* Tablet */
 @media screen and (max-width: 900px) {
-  .User-input {
-    width: 200px;
-    height: 40px;
-  }
-
   .App {
     font-size: 1.2rem;
-  }
-
-  .save-button{
-    width: 120px;
-    font-size: 1rem;
   }
 }
 
 /* Mobile */
 @media screen and (max-width: 500px) {
   .User-input {
-    width: 200px;
+    width: 250px;
     height: 40px;
-  }
-
-  .App {
     font-size: 1rem;
   }
 
-  .save-button{
-    width: 100px;
+  .App {
+    font-size: 0, 8rem;
+  }
+
+  .save-button {
+    width: 250px;
     font-size: 0.8rem;
   }
 }
