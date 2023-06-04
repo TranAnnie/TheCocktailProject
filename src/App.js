@@ -11,23 +11,22 @@ function App() {
     JSON.parse(localStorage.getItem("searchValues") || "[]")
   );
 
-useEffect(() => {
-  async function fetchData() {
-    if (searchValue.length > 2) {
-      const respons = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`
-      );
-      const data = await respons.json();
-      const dataArray = Array.isArray(data.drinks) ? data.drinks : [];
-      setDrinks(dataArray);
+  useEffect(() => {
+    async function fetchData() {
+      if (searchValue.length > 2) {
+        const respons = await fetch(
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`
+        );
+        const data = await respons.json();
+        const dataArray = Array.isArray(data.drinks) ? data.drinks : [];
+        setDrinks(dataArray);
+      }
     }
-  }
-  fetchData().catch(console.error);;
-}, [searchValue])
+    fetchData().catch(console.error);
+  }, [searchValue]);
 
   function onChange(e) {
     setSearchValue(e.target.value);
-    console.log(searchValue);
   }
 
   function saveDrink() {
@@ -60,7 +59,7 @@ useEffect(() => {
             placeholder="Search for drinks here.."
             type="text"
             name="search_input"
-            onChange={() => onChange}
+            onChange={onChange}
           ></input>
         </div>
         <div className="form">
@@ -71,7 +70,9 @@ useEffect(() => {
         <p>Latest saved searches:</p>
         <ul>
           {latestSearches.map((search) => (
-            <li key={uuidv4()} onClick={() => quickSearch(search)}>{search}</li>
+            <li key={uuidv4()} onClick={() => quickSearch(search)}>
+              {search}
+            </li>
           ))}
         </ul>
         <DrinkList drinks={drinks} />
